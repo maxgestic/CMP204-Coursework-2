@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Avicii';
+    src: url("../font/VerminVibes2Soft-grr4.ttf") format('truetype');
+}
+body{
+
+    background-color: black;
+    color: white;
+
+}
+
+#navbar-name{
+
+    font-family: 'Avicii';
+    font-size: 35px;
+    padding: 0px;
+
+}
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+.navbar-nav.navbar-right {
+    position: absolute;
+    right: 0;
+    transform: translatex(-50%);
+}
+#page-cont{
+
+    margin-top: 70px;
+    padding: 50px;
+
+}
+
+#avicii-1-img{
+
+    width: 100%;
+
+}
+
+#header-text{
+
+    position: inherit;
+
+    top: 250px;
+
+}
