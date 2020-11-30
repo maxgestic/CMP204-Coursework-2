@@ -9,35 +9,29 @@ body{
 
 }
 
-#navbar-name{
+#navbar-name {
 
-    font-family: 'Avicii';
+    font-family: 'Avicii', serif;
     font-size: 35px;
-    padding: 0px;
+    padding: 0;
 
 }
-.navbar-nav.navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
+@media only screen and (min-width: 800px) {
+
+
+    .navbar-nav.navbar-center {
+        position: absolute;
+        left: 50%;
+        transform: translatex(-50%);
+    }
+
+    .navbar-nav.navbar-right {
+        position: absolute;
+        right: 0;
+        transform: translatex(-50%);
+    }
 }
-.navbar-nav.navbar-right {
-    position: absolute;
-    right: 0;
-    transform: translatex(-50%);
-}
-#page-cont{
 
-    margin-top: 70px;
-    padding: 50px;
-
-}
-
-#avicii-1-img{
-
-    width: 100%;
-
-}
 
 #header-text{
 
@@ -46,3 +40,58 @@ body{
     top: 250px;
 
 }
+
+#spotify-cont{
+
+    padding: 0;
+    margin-top: 120px;
+    margin-bottom: 120px
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    #header-text{
+
+        position: inherit;
+
+        top: 150px;
+
+    }
+
+    #spotify-cont{
+
+        padding: 0;
+        margin-top: 250px;
+        margin-bottom: 120px
+
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 75%;
+        height: 100%;
+    }
+
+    .navbar-collapse.collapsing {
+        left: -75%;
+        transition: height 0s ease;
+    }
+
+    .navbar-collapse.show {
+        left: 0;
+        transition: left 300ms ease-in-out;
+    }
+
+    .navbar-toggler.collapsed ~ .navbar-collapse {
+        transition: left 500ms ease-in-out;
+    }
+
+
+}
+
