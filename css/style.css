@@ -9,6 +9,11 @@ body{
 
 }
 
+.wrapper{
+    width: 350px;
+    padding: 20px;
+}
+
 h1{
 
     font-family: 'Avicii', serif;

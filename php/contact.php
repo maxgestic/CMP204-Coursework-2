@@ -15,7 +15,7 @@
 
             send_mail($name, $email, $tel, $message);
 
-            header("Location: ../success.html");
+            header("Location: ../success.php");
 
         }
 

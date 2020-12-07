@@ -1,5 +1,5 @@
 $(function () {
-    $('form').on('submit', function (event) {
+    $('#form').on('submit', function (event) {
         // using this page stop being refreshing
         event.preventDefault();
 

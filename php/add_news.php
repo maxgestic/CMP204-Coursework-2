@@ -12,7 +12,7 @@
 
 
         try {
-            $dbh = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser, $dbpass);
+            $dbh = new PDO('mysql:host='.DB_SERVER.';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
 
             $name = $email = "";
 
