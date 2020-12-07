@@ -1,11 +1,15 @@
 <?php
-// Include config file
-require_once "db.php";
 
+//THESE ARE IF YOU DO NOT USE A SEPARATE CONFIG FILE FOR PHP LOGINS
+//define('DB_SERVER', '');
+//define('DB_USERNAME', '');
+//define('DB_PASSWORD', '');
+//define('DB_NAME', '');
+
+require_once "db.php";
 
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-// Check connection
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
@@ -23,28 +27,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql = "DELETE FROM users WHERE id = ?";
 
     if($stmt = mysqli_prepare($link, $sql)){
-        // Bind variables to the prepared statement as parameters
+
         mysqli_stmt_bind_param($stmt, "s", $param_id);
 
         $param_id = $id;
 
-
-
-        // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
-            /* store result */
+
             mysqli_stmt_store_result($stmt);
+
             $_SESSION = array();
+
             session_destroy();
+
             header("location: ../index.php");
+
             exit;
 
-        } else{
+        }
+        else{
+
             echo "Oops! Something went wrong. Please try again later.";
+
         }
 
-        // Close statement
         mysqli_stmt_close($stmt);
+
     }
 
 }

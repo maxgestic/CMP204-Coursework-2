@@ -35,8 +35,8 @@
 
             $to = $email;
             $subject = "Contact Form Email sent by $name";
-
             $message = "
+
             <html lang='en'>
             
                 <head>
@@ -70,11 +70,8 @@
             </html>
             ";
 
-            // Always set content-type when sending HTML email
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-            // More headers
             $headers .= 'From: notreal@avicii.com' . "\r\n";
 
             mail($to,$subject,$message,$headers);
