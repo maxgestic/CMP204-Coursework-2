@@ -98,7 +98,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true){
 
                     ?>>
 
-                    <a class="nav-link" href="contact">Home</a>
+                    <a class="nav-link" href="contact">Contact</a>
 
                 </li>
 

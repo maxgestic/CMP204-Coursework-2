@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
 //THESE ARE IF YOU DO NOT USE A SEPARATE CONFIG FILE FOR PHP LOGINS
 //define('DB_SERVER', '');
 //define('DB_USERNAME', '');
@@ -14,73 +21,10 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$email = $password = $confirm_password = $fn = $ln = "";
-$email_err = $password_err = $confirm_password_err  = $fn_err = $ln_err = "";
+$password = $confirm_password = $id = "";
+$password_err = $confirm_password_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    if(empty(trim($_POST["fn"]))){
-
-        $fn_err = "Please enter a Firstname";
-
-    }
-    else{
-
-        $fn = trim($_POST["fn"]);
-
-    }
-
-    if(empty(trim($_POST["ln"]))){
-
-        $ln_err = "Please enter a Firstname";
-
-    }
-    else{
-
-        $ln = trim($_POST["ln"]);
-
-    }
-
-    if(empty(trim($_POST["email"]))){
-
-        $email_err = "Please enter a email.";
-
-    }
-    else{
-
-        $sql = "SELECT id FROM users WHERE email = ?";
-
-        if($stmt = mysqli_prepare($link, $sql)){
-
-            mysqli_stmt_bind_param($stmt, "s", $param_email);
-
-            $param_email = trim($_POST["email"]);
-
-            if(mysqli_stmt_execute($stmt)){
-
-                mysqli_stmt_store_result($stmt);
-
-                if(mysqli_stmt_num_rows($stmt) == 1){
-
-                    $email_err = "This email is already taken.";
-
-                } else{
-
-                    $email = trim($_POST["email"]);
-
-                }
-
-            } else{
-
-                echo "Oops! Something went wrong. Please try again later.";
-
-            }
-
-            mysqli_stmt_close($stmt);
-
-        }
-
-    }
 
     if(empty(trim($_POST["password"]))){
 
@@ -115,22 +59,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     }
 
-    if(empty($fn_err) && empty($ln_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($password_err) && empty($confirm_password_err)){
 
-        $sql = "INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+        $sql = "UPDATE users SET password = ? WHERE id = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
 
-            mysqli_stmt_bind_param($stmt, "ssss", $parm_fn, $parm_ln, $param_email, $param_password);
+            mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
 
-            $parm_fn = $fn;
-            $parm_ln = $ln;
-            $param_email = $email;
+            $param_id = $_SESSION["id"];
             $param_password = password_hash($password, PASSWORD_DEFAULT);
 
             if(mysqli_stmt_execute($stmt)){
 
-                header("location: login.php");
+                header("location: settings.php");
 
             }
             else{
@@ -150,8 +92,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 ?>
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -200,32 +140,14 @@ include('php/navbar.php')
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-            <div class="form-group <?php echo (!empty($fn_err)) ? 'has-error' : ''; ?>">
-                <label>First Name</label>
-                <input type="text" name="fn" class="form-control" value="<?php echo $fn; ?>">
-                <span class="help-block"><?php echo $fn_err; ?></span>
-            </div>
-
-            <div class="form-group <?php echo (!empty($ln_err)) ? 'has-error' : ''; ?>">
-                <label>Last Name</label>
-                <input type="text" name="ln" class="form-control" value="<?php echo $ln; ?>">
-                <span class="help-block"><?php echo $ln_err; ?></span>
-            </div>
-
-            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
-                <span class="help-block"><?php echo $email_err; ?></span>
-            </div>
-
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
+                <label>New Password</label>
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
 
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
+                <label>Confirm New Password</label>
                 <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
