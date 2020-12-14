@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Requirements page</title>
+	<link rel="stylesheet" href="reqStyle.css">
+</head>
+<body>
+
+<h1>CMP204 Requirements Page - Unit 2 Assessment</h1>
+
+<p>If you have not met a requirement, do not delete it from the table.</p>
+
+<table>
+  <tr>
+    <th class="reqCol">Requirement</th>
+    <th class="metCol">How did you meet this requirement?</th>
+    <th class="fileCol">File name(s), line no.</th>
+  </tr>
+  <tr>
+    <td>A clear use of HTML5</td>
+    <td>HTML5 is used in every page of my website</td>
+    <td>Every major website</td>
+  </tr>
+  <tr>
+    <td>Use of the Bootstrap framework providing a responsive layout </td>
+    <td>Bootstrap is used in every page of the website, used in navbar's containers and jumbotrons to enhance layout and visual design</td>
+    <td>index.php, about.php, contact.php, settings.php, messages.php, etc.</td>
+  </tr>
+  <tr>
+    <td>Use of AJAX (pure JavaScript i.e. without the use of a library)</td>
+    <td>I used AJAX to load the jumbotron to load the music box at the middle of my index file</td>
+    <td>
+      index.php: 163<br>
+      js/ajax.js: 3-17
+    </td>
+  </tr>
+  <tr>
+    <td>Use of the jQuery AJAX function</td>
+    <td>Used in both the add_message.js and add_news.js pages to call a php file without having it redirect to a different page!</td>
+    <td>js/add_message.js and js/add_news.js starting from line 7</td>
+  </tr>
+  <tr>
+    <td>User login functionality (PHP/MySQL)</td>
+    <td>A user login system has been included, there is ability to register, login, change password and deleting the user. All of these are done using php prepared statments and all data is stored in a sql database</td>
+    <td>login.php, register.php, change_password.php, php/delete.php</td>
+  </tr>
+  <tr>
+    <td>Ability to select, add, edit and delete information from a database (PHP/MySQL)</td>
+    <td>This is done with the user system, the select part is done in the login part, the add during the register one, the change is used in change password and remove is done when deleting a user</td>
+    <td>login.php, register.php, change_password.php, php/delete.php</td>
+  </tr>
+  <tr>
+    <td>Appropriate consideration of relevant laws</td>
+    <td>I implemented a cookie and GDPR notice</td>
+    <td>js/cookie-consent.js</td>
+  </tr>
+  <tr>
+    <td>SQL queries should be written as prepared statements</td>
+    <td>All SQL queries with the user system are prepared statements</td>
+    <td>login.php, register.php, change_password.php, php/delete.php</td>
+  </tr>
+  <tr>
+    <td>Passwords should be salted and hashed</td>
+    <td>Passwords are salted and hashed whenever used!</td>
+    <td>login.php, register.php, change_passwd.php</td>
+  </tr>
+  <tr>
+    <td>Validation of user input</td>
+    <td>User inputs are validated on each of the user system php scripts making sure only valid inputs are passed to the sql querries</td>
+    <td>login.php, register.php, change_passwd.php</td>
+  </tr>
+</table>
+		
+</body>
+</html>
+
+
+

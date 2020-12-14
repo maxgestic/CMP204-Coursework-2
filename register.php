@@ -166,7 +166,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
-    <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/3.1.0/cookie-consent.js"></script>
+    <script type="text/javascript" src="js/cookie-consent.js"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             cookieconsent.run({"notice_banner_type":"interstitial","consent_type":"express","palette":"dark","language":"en","website_name":"Avicii","change_preferences_selector":"#changePreferences"});

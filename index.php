@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
-    <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/3.1.0/cookie-consent.js"></script>
+    <script type="text/javascript" src="js/cookie-consent.js"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             cookieconsent.run({"notice_banner_type":"interstitial","consent_type":"express","palette":"dark","language":"en","website_name":"Avicii","change_preferences_selector":"#changePreferences"});
@@ -69,11 +69,13 @@ include('php/navbar.php')
 
     </div>
 
-    <div class="container-fluid" id="spotify-cont">
+    <div class="container-fluid text-center" id="spotify-cont">
 
         <h2 class="text-center" style="font-family: Avicii,serif; font-size: 70px">Top Songs</h2>
 
-        <iframe src="https://open.spotify.com/embed/artist/1vCWHaC5f2uS3yhpwWbIA6" width="100%" height="400px" allowtransparency="true" allow="encrypted-media"></iframe>
+        <div id="content"></div>
+
+        <button onclick="loadCont()" id="musicbutton" style="border-radius: 5px">Show Music</button>
 
     </div>
 
@@ -156,34 +158,39 @@ include('php/navbar.php')
 
     </div>
 
-    <div class="jumbotron" id="newsjumb">
+    <div class="container text-center">
 
-        <h1>Subscribe to our Newsletter!</h1>
+        <div class="jumbotron" id="newsjumb">
 
-        <form id="form">
+            <h1>Subscribe to our Newsletter!</h1>
 
-            <label>
-                <h3>Name:</h3><br>
-                <input class="newsinput" type="text" name="name" id="name">
-            </label> <br><br>
+            <form id="form">
 
-            <label>
-                <h3>E-Mail:</h3><br>
-                <input class="newsinput" type="text" name="email" id="email">
-            </label> <br><br>
+                <label>
+                    <h3>Name:</h3><br>
+                    <input class="newsinput" type="text" name="name" id="name">
+                </label> <br><br>
 
-            <input class="newsinput" name="submit" type="submit" value="Submit">
+                <label>
+                    <h3>E-Mail:</h3><br>
+                    <input class="newsinput" type="text" name="email" id="email">
+                </label> <br><br>
 
-        </form>
+                <input class="newsinput" name="submit" type="submit" value="Submit">
+
+            </form>
+
+        </div>
 
     </div>
 
-</div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/add_news.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/add_news.js"></script>
+    <script src="js/ajax.js"></script>
 
 
 

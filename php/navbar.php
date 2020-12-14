@@ -49,34 +49,6 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true){
                 <li
                     <?php
 
-                    if($_SERVER['SCRIPT_NAME']=="/about.php") {
-
-                        ?>
-
-                        class="nav-item active"
-
-                        <?php
-
-                    }
-                    else{
-
-                        ?>
-
-                        class="nav-item"
-
-                        <?php
-
-                    }
-
-                    ?>>
-
-                    <a class="nav-link" href="/about">About</a>
-
-                </li>
-
-                <li
-                    <?php
-
                     if($_SERVER['SCRIPT_NAME']=="/contact.php") {
 
                         ?>
@@ -99,6 +71,34 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true){
                     ?>>
 
                     <a class="nav-link" href="contact">Contact</a>
+
+                </li>
+
+                <li
+                    <?php
+
+                    if($_SERVER['SCRIPT_NAME']=="/messages.php") {
+
+                        ?>
+
+                        class="nav-item active"
+
+                        <?php
+
+                    }
+                    else{
+
+                        ?>
+
+                        class="nav-item"
+
+                        <?php
+
+                    }
+
+                    ?>>
+
+                    <a class="nav-link" href="contact">Add Message</a>
 
                 </li>
 
@@ -187,34 +187,6 @@ else {
                 <li
                     <?php
 
-                    if($_SERVER['SCRIPT_NAME']=="/about.php") {
-
-                        ?>
-
-                        class="nav-item active"
-
-                        <?php
-
-                    }
-                    else{
-
-                        ?>
-
-                        class="nav-item"
-
-                        <?php
-
-                    }
-
-                    ?>>
-
-                    <a class="nav-link" href="about.php">About</a>
-
-                </li>
-
-                <li
-                    <?php
-
                     if($_SERVER['SCRIPT_NAME']=="/contact.php") {
 
                         ?>
@@ -236,7 +208,35 @@ else {
 
                     ?>>
 
-                    <a class="nav-link" href="contact.php">Home</a>
+                    <a class="nav-link" href="contact.php">Contact</a>
+
+                </li>
+
+                <li
+                    <?php
+
+                    if($_SERVER['SCRIPT_NAME']=="/messages.php") {
+
+                        ?>
+
+                        class="nav-item active"
+
+                        <?php
+
+                    }
+                    else{
+
+                        ?>
+
+                        class="nav-item"
+
+                        <?php
+
+                    }
+
+                    ?>>
+
+                    <a class="nav-link" href="contact">Add Message</a>
 
                 </li>
 

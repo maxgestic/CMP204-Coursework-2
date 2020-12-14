@@ -10,10 +10,10 @@ $(function () {
             data: $('form').serialize(),
             success: function () {
                 document.getElementById("message_box").value = "";
-                alert('message was submitted');
+                alert('Message has been submitted!');
             },
             error: function (){
-                alert('fail, please make sure you are logged in');
+                alert('Failed to post message, please make sure to be logged in!');
 
             }
 
