@@ -98,7 +98,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true){
 
                     ?>>
 
-                    <a class="nav-link" href="contact">Add Message</a>
+                    <a class="nav-link" href="messages">Add Message</a>
 
                 </li>
 
@@ -236,7 +236,7 @@ else {
 
                     ?>>
 
-                    <a class="nav-link" href="contact">Add Message</a>
+                    <a class="nav-link" href="messages">Add Message</a>
 
                 </li>
 
